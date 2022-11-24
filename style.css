@@ -4,9 +4,9 @@
 
 #gridContainer{
 width:80vw;
-
 border:2px solid greenyellow;
 display: flex;
+flex-wrap: wrap;
 }
 
 .gridPixel{
@@ -15,6 +15,6 @@ display: flex;
  aspect-ratio: 1/1;
  border:2px solid red;
  background-color: antiquewhite;
- flex-shrink: 0;
+
 }
 
