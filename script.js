@@ -5,11 +5,12 @@ const gridParent = document.querySelector('#canvas')
 //root for css variables
 const root = document.querySelector(":root");
 const paintPicker = document.querySelector("#paintColor");
+const backgroundColor=document.querySelector("#background")
 const gridSizeSlider = document.querySelector('#gridSizeSlider');
 const gridSizeX = document.querySelector('#xSize');
 const gridSizeY = document.querySelector('#ySize');
 
-
+backgroundColor.addEventListener('change',(e)=>{root.style.setProperty(e.target.name, e.target.value)})
 gridSizeSlider.addEventListener('change',(e)=>{createGrid(e.target.value,e.target.value)})
 gridSizeX.addEventListener('change',(e)=>{constrainGridSize(e.target.value,gridSizeY.value)})
 gridSizeY.addEventListener('change',(e)=>(constrainGridSize(gridSizeY.value,e.target.value)))
