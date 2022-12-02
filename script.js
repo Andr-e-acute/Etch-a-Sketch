@@ -1,41 +1,46 @@
 //start size TODO Remove after getting values from sliders
 
-const gridContainer = document.querySelector("#gridContainer");
+let gridContainer = document.querySelector("#gridContainer");
+const gridParent = document.querySelector('#canvas')
 //root for css variables
 const root = document.querySelector(":root");
 const paintPicker = document.querySelector("#paintColor");
 const gridSizeSlider = document.querySelector('#gridSizeSlider');
+const gridSizeX = document.querySelector('#xSize');
+const gridSizeY = document.querySelector('#ySize');
 
 
-
-
-gridSizeSlider.addEventListener('change',(e)=>{createGrid(e.target)})
+gridSizeSlider.addEventListener('change',(e)=>{createGrid(e.target,e.target)})
 
 //prevent the dragging grab ? default
 gridContainer.addEventListener("mousemove",(e)=>{
   e.preventDefault()
 })
 
-createGrid(gridSizeSlider);
 
-function createGrid(size){
-  const gridX = size.value;
-  const gridY =size.value;
 
-  for (let index = 1; index <= gridY; index++) {
-    createLine(gridX, index);
+function createGrid(sizeX,sizeY){
+  console.log(gridSizeX.value)
+ 
+  gridSizeX.value=sizeX.value
+  gridSizeY.value=sizeY.value
+  gridContainer.remove();
+  gridContainer = gridContainer.cloneNode()
+  for (let index = 1; index <= sizeX.value; index++) {
+    createRow(sizeY.value, index);
   }
+  gridParent.append(gridContainer)
 
 }
 
-//function one line of the grid
-function createLine(sizeX, indexY) {
-  console.log('createLine')
-  for (let index = 1; index <= sizeX; index++) {
+//function one Row of the grid
+function createRow(sizeY, indexX) {
+  
+  for (let index = 1; index <= sizeY; index++) {
     let gridPixel = document.createElement("div");
     gridPixel.classList.add("gridPixel");
-    gridPixel.setAttribute("id", `y${indexY}x${index}`);
-    gridPixel.style.width = `calc(100%/${sizeX})`;
+    gridPixel.setAttribute("id", `y${indexX}x${index}`);
+    gridPixel.style.width = `calc(100%/${sizeY})`;
 
     //mousemove for painting and mousedown for singlePixel
     gridPixel.addEventListener("mousemove", paintPixel);
@@ -52,12 +57,13 @@ function paintPixel(e) {
   console.log(e.buttons)
 }
 }
+createGrid(gridSizeSlider,gridSizeSlider);
 //create CanvasGrid gridY times of lines
 
 
 //
 /*TODO
-add slider for Gridsize
+
 manuel input of Gridsize??
 remove double gridlines
 
