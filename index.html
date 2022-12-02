@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
     <title>Etch-a-sketch</title>
-</head>
-<body>
- 
+  </head>
+  <body>
     <div id="canvas">
-    <div id="settings">
+      <div id="settings">
         <div>
-            <input type="color" id="background" name="--background-color" value="#ffffff">
-            <label for="--background-color">Background Color</label>
+          <input
+            type="color"
+            id="background"
+            name="--background-color"
+            value="#ffffff"
+          />
+          <label for="--background-color">Background Color</label>
         </div>
         <div>
-            <input type="color" id="paintColor" name="--paint-color" value="#000000">
-            <label for="--paint-color">Paint Color</label>
+          <input
+            type="color"
+            id="paintColor"
+            name="--paint-color"
+            value="#000000"
+          />
+          <label for="--paint-color">Paint Color</label>
         </div>
-        <input type="number" id></input>
+        <div>
+          <input type="range" id="gridSizeSlider" name="volume" min="8" max="100" />
+          <label for="gridSizeSlider">Grid size</label>
+        </div>
+      </div>
+      <div id="gridContainer"></div>
     </div>
-    <div id="gridContainer"></div>
-</div>
-</body>
+  </body>
 </html>
